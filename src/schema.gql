@@ -1,0 +1,110 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AddUserInput {
+  communityId: String!
+  userId: String!
+}
+
+type Community {
+  id: String!
+  name: String!
+}
+
+input CreateCommunityInput {
+  name: String!
+}
+
+input CreateTaskInput {
+  status: String!
+  taskName: String!
+  userId: String!
+}
+
+input CreateUserProfileInput {
+  address: String
+  city: String
+  id: String
+  phno: String
+  state: String
+  userId: String!
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+input LoginUserInput {
+  password: String!
+  username: String!
+}
+
+type Mutation {
+  addUserToCommunity(addUserInput: AddUserInput!): Community!
+  createCommunity(createCommunityInput: CreateCommunityInput!): Community!
+  createTask(createTaskInput: CreateTaskInput!): Task!
+  createUserProfile(createUserProfileInput: CreateUserProfileInput!): UserProfile!
+  login(loginUserInput: LoginUserInput!): LoginResponse!
+  removeCommunity(id: String!): Community!
+  removeTask(id: String!): Task!
+  removeUserProfile(id: String!): UserProfile!
+  signup(loginUserInput: LoginUserInput!): User!
+  updateCommunity(updateCommunityInput: UpdateCommunityInput!): Community!
+  updateTask(updateTaskInput: UpdateTaskInput!): Task!
+  updateUserProfile(updateUserProfileInput: UpdateUserProfileInput!): UserProfile!
+}
+
+type Query {
+  communities: [Community!]!
+  community(id: String!): Community!
+  task(id: String!): Task!
+  tasks: [Task!]!
+  user(id: String!): User!
+  userProfile(id: String!): UserProfile!
+  users: [User!]!
+}
+
+type Task {
+  id: String!
+  status: String!
+  taskName: String!
+  user: User!
+  userId: String!
+}
+
+input UpdateCommunityInput {
+  id: String!
+  name: String!
+}
+
+input UpdateTaskInput {
+  id: String!
+  status: String
+  taskName: String
+  userId: String
+}
+
+input UpdateUserProfileInput {
+  address: String
+  city: String
+  id: String!
+  phno: String
+  state: String
+  userId: String
+}
+
+type User {
+  id: String!
+  password: String!
+  username: String!
+}
+
+type UserProfile {
+  address: String!
+  city: String!
+  id: String!
+  phno: String!
+  state: String!
+}
